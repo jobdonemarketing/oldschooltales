@@ -1,1 +1,386 @@
-work in progress
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Old School Tales | Povești nemuritoare pentru copii</title>
+    <style>
+        :root {
+            --bg-color: #fcfbf7;
+            --card-bg: #ffffff;
+            --text-color: #2b2b2b;
+            --accent-color: #8b4513;
+            --border-color: #e2dacd;
+            --hover-color: #6a340d;
+            --font-heading: 'Georgia', serif;
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 3rem auto;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+
+        .support-section {
+            background-color: #f4efe6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .support-section p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--hover-color);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .library-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.2rem;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .book-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .book-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transform: translateY(-1px);
+        }
+
+        .book-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: #111;
+            margin-bottom: 0.25rem;
+            line-height: 1.35;
+        }
+
+        .book-author {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            text-align: center;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-download:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media (max-width: 900px) {
+            .book-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .book-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .book-title {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Old School Tales</h1>
+        <p class="tagline">Povești clasice nemuritoare, simplificate pentru tinerii cititori</p>
+
+        <p class="intro">
+            Bine ați venit! Creată de doamna Maria Ciceu, profesoară pensionară, această colecție
+            readuce la viață basme populare din domeniul public, în formate PDF clare și ușor de descărcat.
+            Gratuit pentru părinți, profesori și copii de pretutindeni.
+        </p>
+
+        <div class="support-section">
+            <p>Dacă vă plac aceste povești gratuite, puteți susține munca Mariei cu un mic dar:</p>
+            <a href="https://paypal.me/MariaCiceu30"
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer">
+            Susține prin PayPal
+        </a>
+    </div>
+</header>
+
+<main>
+    <h2 class="library-title">Descărcări disponibile</h2>
+
+    <div class="book-grid">
+
+        <!-- 1. Acul și barosul -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Acul și barosul</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Acul_si_barosul_Ion_Creanga_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 2. Capra cu trei iezi -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Capra cu trei iezi</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Capra_cu_trei_iezi_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 3. Dănilă Prepeleac -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Dănilă Prepeleac</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Danila_Prepeleac_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 4. Fata babei și fata moșneagului -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Fata babei și fata moșneagului</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Fata_babei_si_fata_mosneagului_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 5. Inul și cămeșa -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Inul și cămeșa</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Inul_si_camesa_Ion_Creanga_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 6. Ivan Turbincă -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Ivan Turbincă</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Ivan_Turbinca_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 7. Păcală -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Păcală</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Pacala_Ion_Creanga_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 8. Povestea lui Harap-Alb (original) -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Povestea lui Harap-Alb</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Povestea_lui_Harap_Alb_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 9. Povestea lui Harap-Alb (corectată) -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Povestea lui Harap-Alb <small style="color:#888;">(corectată)</small></h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Povestea_lui_Harap_Alb_Exact_Original_Corrected.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 10. Povestea lui Stan Pățitul -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Povestea lui Stan Pățitul</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Povestea_lui_Stan_Patitul_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 11. Povestea porcului -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Povestea porcului</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Povestea_porcului_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 12. Punguța cu doi bani -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Punguța cu doi bani</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Punguta_cu_doi_bani_Ion_Creanga-v2.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+        <!-- 13. Ursul păcălit de vulpe -->
+        <div class="book-card">
+            <div>
+                <h3 class="book-title">Ursul păcălit de vulpe</h3>
+                <p class="book-author">de Ion Creangă</p>
+            </div>
+            <a href="pdf/Ursul_pacalit_de_vulpe_Ion_Creanga_Exact_Original.pdf"
+            class="btn-download"
+            target="_blank"
+            rel="noopener noreferrer">Deschide PDF</a>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>&copy; Old School Tales. Literatură din domeniul public, oferită cu drag.</p>
+</footer>
+
+</body>
+</html>
